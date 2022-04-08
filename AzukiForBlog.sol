@@ -67,7 +67,7 @@ contract Azuki is Ownable, ERC721A, ReentrancyGuard {
       numberMinted(msg.sender) + quantity <= maxPerAddressDuringMint,
       "can not mint this many"
     );
-    // Get the minting cost. But why its argument is `_saleStartTime` instead of the timestamp of calling the function?
+    // Get the minting cost. I'm assuming azuki is the one that's footing the minting bill
     uint256 totalCost = getAuctionPrice(_saleStartTime) * quantity;
     // Use the ERC721A function `_safeMint`
     _safeMint(msg.sender, quantity);
